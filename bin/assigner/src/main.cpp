@@ -454,7 +454,6 @@ int curve_dependent_main(std::string bytecode_file_name,
     }
 
     nil::blueprint::assigner<BlueprintFieldType, ArithmetizationParams> assigner_instance(
-        stack_size,
         log_level,
         max_num_provers,
         target_prover,
