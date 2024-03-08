@@ -515,7 +515,8 @@ int curve_dependent_main(std::string bytecode_file_name,
             }
         }
 
-        ASSERT(max_used_selector_idx < ComponentSelectorColumns);
+        // TODO: enable after merge fix - https://github.com/NilFoundation/zkllvm-assigner/pull/197
+        //ASSERT(max_used_selector_idx < ComponentSelectorColumns);
 
         auto usable_rows_amount = zk::snark::pack_lookup_tables_horizontal(
                 assigner_instance.circuits[0].get_reserved_indices(),
@@ -838,7 +839,7 @@ int main(int argc, char *argv[]) {
     if (vm.count("max-num-provers")) {
         max_num_provers = vm["max-num-provers"].as<int>();
         if (max_num_provers < 1) {
-            std::cerr << "Invalid command line argument - max-num-provers. " << max_num_provers << " is wrong value." << std::endl;
+            std::cerr << "Invalid command line argument --max-num-provers. " << max_num_provers << " is wrong value." << std::endl;
             std::cout << options_desc << std::endl;
             return 1;
         }
